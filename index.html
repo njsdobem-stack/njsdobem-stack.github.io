@@ -3,87 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Cartão Digital</title>
+    <title>Associação Anjos do Bem | Oficial</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <style>
-        /* Estilização Visual */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        :root {
+            --primary: #d32f2f; 
+            --secondary: #ffeb3b; 
+            --bg-soft: #fffde7;
+            --dark: #212121;
+            --white: #ffffff;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: var(--bg-soft); color: var(--dark); line-height: 1.6; }
+        
+        /* BANNER HERO COM FOTO DE CAPA */
+        .hero { 
+            position: relative;
+            height: 450px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            color: #333;
-        }
-
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            justify-content: center;
             text-align: center;
-            max-width: 350px;
-            width: 90%;
+            color: var(--white);
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.postimg.cc/jSCjJcvh/DB8F418F_56C4_450F_8B57_7ED7A487D8AE.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-bottom: 10px solid var(--secondary);
         }
 
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: #eee;
-            margin-bottom: 1rem;
-            border: 4px solid #764ba2;
-        }
+        .hero-content h1 { font-size: 3rem; margin: 0; text-transform: uppercase; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+        .hero-content p { font-size: 1.2rem; background: rgba(211, 47, 47, 0.8); padding: 8px 20px; border-radius: 5px; margin-top: 15px; display: inline-block; font-weight: bold; }
 
-        h1 {
-            margin: 10px 0 5px;
-            font-size: 1.5rem;
-        }
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
 
-        p {
-            color: #666;
-            margin-bottom: 20px;
-        }
+        /* BOX LIDERANÇA */
+        .lideranca-box { background: var(--white); padding: 30px; border-radius: 20px; margin: -60px auto 40px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; z-index: 10; border-bottom: 5px solid var(--primary); max-width: 850px; }
+        .lideranca-box h2 { color: var(--primary); margin: 0 0 10px 0; }
 
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+        /* GRID DE PROJETOS */
+        .projetos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        
+        .projeto-card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; border: 1px solid #eee; }
 
-        .btn {
-            text-decoration: none;
-            background: #f0f0f0;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: bold;
-            color: #764ba2;
-            transition: all 0.3s ease;
-        }
+        /* ESTILO DO CARROSSEL DENTRO DO CARD */
+        .swiper { width: 100%; height: 280px; background: #ddd; }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        .btn:hover {
-            background: #764ba2;
-            color: white;
-            transform: translateY(-2px);
-        }
+        .projeto-info { padding: 25px; flex-grow: 1; }
+        .projeto-info h3 { color: var(--primary); margin: 0 0 15px 0; font-size: 1.5rem; border-bottom: 3px solid var(--secondary); padding-bottom: 8px; }
+        .projeto-info p { font-size: 1rem; color: #555; }
+
+        /* SEÇÃO DE AJUDA */
+        .ajuda-section { background: var(--primary); color: var(--white); padding: 60px 20px; border-radius: 30px; text-align: center; margin-top: 60px; }
+        .caixa-bancaria { background: var(--white); color: var(--dark); padding: 30px; border-radius: 15px; display: inline-block; margin: 25px 0; text-align: left; border: 3px solid var(--secondary); }
+        .caixa-bancaria strong { color: var(--primary); }
+
+        .btn-whats { background: #25d366; color: var(--white); padding: 20px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; font-size: 1.2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s; }
+        .btn-whats:hover { transform: scale(1.05); }
+
+        footer { text-align: center; padding: 50px; color: #888; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <img src="https://via.placeholder.com/120" alt="Foto de Perfil" class="profile-img">
-        
-        <h1>Seu Nome Aqui</h1>
-        <p>Desenvolvedor & Criativo</p>
-
-        <div class="links">
-            <a href="#" class="btn">Meu Portfólio</a>
-            <a href="#" class="btn">LinkedIn</a>
-            <a href="#" class="btn">WhatsApp</a>
-            <a href="#" class="btn">E-mail</a>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Associação Anjos do Bem</h1>
+            <p>Transformando vidas através do amor e da ação social</p>
         </div>
+    </header>
+
+    <div class="container">
+        <section class="lideranca-box">
+            <h2>Liderança: Ronilson</h2>
+            <p><strong>Endereço:</strong> Rua Santos Dumont, N.869 | Atuando desde 2019</p>
+            <p>Telefone de Contato: (94) 98407-1591</p>
+        </section>
+
+        <div class="projetos-grid">
+
+            <div class="projeto-card" style="border: 2px solid var(--primary);">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/RhkjVcSD/6b045789-4c8c-41a1-9e4d-f3929b1b7df4-7ED5B5C5-162B-4DF5-A168-1E7B0C68264B.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/0jTL2pkh/839f5ace-18be-4f87-8d01-f57a52d8f937-1A17B4F3-44C5-46DA-B47A-4327B4D3EA07.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/rs0Bkhkg/IMG-2415.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/QxpXKM2T/IMG-2416.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/MKyWfGCf/IMG-2417.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/sDpVG2kZ/IMG-2418.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/MKyWfGCn/IMG-2419.jpg"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="projeto-info">
+                    <h3>Casa de Passagem Daniel</h3>
+                    <p>Acolhimento digno para idosos e moradores de rua. Um porto seguro onde o respeito e o carinho são as bases do nosso atendimento.</p>
+                </div>
+            </div>
+
+            <div class="projeto-card">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/vmKMwddq/2ae8406c_ec11_4641_9f6e_3470b4e6f13c.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/QMzsZrrS/48566049_d2c3_4166_8ed5_3be1f4eb3e60.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/tgcyGHHB/617cfde1_9331_4342_84f6_552b11df2b74.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/DzNF3KK6/a50f06fb_f3fb_4e10_8870_45747abea679_991BA2F9_8C14_4D69_B0FD_614C81BF9978.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/cJzZGNNk/cc1dd363_df8b_4b6e_9a38_6014fdd23cc8_55D1F028_7658_4757_8C85_575EAFBC1EF0.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/R06yf6jj/53fa0c1b-c28d-4da0-ba87-4286e10ea1b0-90B93A54-5BF7-4970-9D4D-B58DDC285382.jpg"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="projeto-info">
+                    <h3>Projeto Salva Vidas</h3>
+                    <p>Trabalho focado na recuperação e apoio a usuários de álcool e drogas, buscando a restauração da dignidade humana.</p>
+                </div>
+            </div>
+
+            <div class="projeto-card">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/Bvr5zXtC/IMG_2378.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/R0k1YNqR/IMG_2377.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/0NTG4brd/IMG_2376.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/W4Bmyhtw/IMG_2375.jpg"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="projeto-info">
+                    <h3>Sopão na Comunidade</h3>
+                    <p>Combate à fome através da distribuição de alimento nutritivo para famílias em situação de vulnerabilidade.</p>
+                </div>
+            </div>
+
+            <div class="projeto-card">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/nMb1QMfm/IMG_2374.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/JtVQBtCZ/IMG_2373.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/Bt9C1tfD/IMG_2372.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/pybBnyMK/IMG_2371.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/F15xJ1Xp/f04188bf_4618_464c_9a08_46b5c2f30bca_3BD00A80_12EE_4939_B182_170184830066.jpg"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="projeto-info">
+                    <h3>Guarda Patriota</h3>
+                    <p>Promovendo disciplina, civismo e cidadania para os jovens da nossa comunidade.</p>
+                </div>
+            </div>
+
+            <div class="projeto-card">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/QMcVXbXL/6e8d4b3b_1169_44d1_9b2e_fe4653e3a57c.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/zfT3Jjqt/7c2200be_8ad4_47a7_b4fc_095281aa64f8.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/cJf6smdP/c59504be_adc5_431d_b751_170a29d4965c_F9BA3326_0D84_4E27_A10C_08FF0C9A3FA9.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/LsjhHTmb/f6a5e4fb_dd6c_42bf_9468_095b6360e6bd.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/8CLs1HTn/IMG_2402.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/q7G0bZJ2/1994aaa0-f032-434a-99a7-232482599e69.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/1zKPCYmw/36dfe29f-6451-43b8-b6a9-7a0ab8956479.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/3wZ7Sb8G/9e748947-9159-43de-9afe-872b7e5b3b11.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/mrSRX6L1/e123842b-82f7-4f20-bcfc-e1a985df7003.jpg"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="projeto-info">
+                    <h3>Datas Comemorativas</h3>
+                    <p>Alegria e esperança em datas especiais como Páscoa, Dia das Crianças e festas para Pais e Mães.</p>
+                </div>
+            </div>
+
+            <div class="projeto-card">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/bwdv2gL9/3477148b_e01d_4dc0_ae46_07dfb491cec7_C720FBE2_7A24_43AE_A748_C596BB0D19C9.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.postimg.cc/bwdv2gLH/ba79622f_df9f_4c1b_93a4_484da5211b51_1DB9ED7F_05C9_473C_BD0C_261692395D0C.jpg"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="projeto-info">
+                    <h3>Idosos e Carimbó</h3>
+                    <p>Cuidado e cultura para a melhor idade, mantendo viva a alegria e a saúde através da dança.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <section class="ajuda-section">
+            <h2>Como nos ajudar a continuar?</h2>
+            <div class="caixa-bancaria">
+                <p><strong>Banco:</strong> CAIXA ECONÔMICA FEDERAL</p>
+                <p><strong>Agência:</strong> 4525</p>
+                <p><strong>Conta:</strong> 571546928-3</p>
+                <p><strong>Titular:</strong> Associação Anjos do Bem</p>
+            </div>
+            <br><br>
+            <a href="https://wa.me/5594984071591" class="btn-whats" target="_blank">Enviar comprovante no WhatsApp</a>
+        </section>
     </div>
 
+    <footer>&copy; 2024 Associação Anjos do Bem - Ajudar uma pessoa não muará o mudo,mas mudará o mundo dessa pessoa!</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: { delay: 3500, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true },
+        });
+    </script>
 </body>
 </html>
